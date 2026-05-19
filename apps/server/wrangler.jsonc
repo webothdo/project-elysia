@@ -11,4 +11,14 @@
   "observability": {
     "enabled": true,
   },
+  "vars": {
+    "BETTER_AUTH_URL": "https://your-api-domain.com",
+    "CORS_ORIGIN": "https://your-frontend-domain.com",
+    "NODE_ENV": "production",
+  },
+  /**
+   * Set these as secrets via wrangler CLI (do NOT store in this file):
+   * wrangler secret put DATABASE_URL
+   * wrangler secret put BETTER_AUTH_SECRET
+   */
 }
