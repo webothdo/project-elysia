@@ -51,7 +51,4 @@ export default new Elysia({
     return { message: "jigsaw" };
   })
   .get("/", () => "OK")
-  .listen(3000, () => {
-    console.log("Server is running on http://localhost:3000");
-  })
   .compile();
