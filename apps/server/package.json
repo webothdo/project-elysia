@@ -10,6 +10,7 @@
     "start": "bun run dist/index.mjs"
   },
   "dependencies": {
+    "@elysia/openapi": "^1.4.15",
     "@elysiajs/cors": "^1.4.1",
     "@project-elysia/auth": "workspace:*",
     "@project-elysia/db": "workspace:*",
