@@ -22,7 +22,6 @@
     "better-auth": "catalog:",
     "dotenv": "catalog:",
     "elysia": "^1.4.28",
-    "evlog": "catalog:",
     "zod": "catalog:"
   },
   "devDependencies": {

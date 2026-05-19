@@ -2,35 +2,15 @@ import { cors } from "@elysiajs/cors";
 import { auth } from "@project-elysia/auth";
 import { env } from "@project-elysia/env/server";
 import { Elysia } from "elysia";
-import { initLogger } from "evlog";
-import {
-  createAuthMiddleware,
-  type BetterAuthInstance,
-} from "evlog/better-auth";
-import { evlog } from "evlog/elysia";
 import { openapi } from "@elysia/openapi";
 import { CloudflareAdapter } from "elysia/adapter/cloudflare-worker";
 
 import { randomRoutes } from "./routes/random";
 
-initLogger({
-  env: { service: "project-elysia-server" },
-});
-
-const identifyUser = createAuthMiddleware(auth as BetterAuthInstance, {
-  exclude: ["/api/auth/**"],
-  maskEmail: true,
-});
-
 export default new Elysia({
   adapter: CloudflareAdapter,
 })
-  .use(evlog())
   .use(openapi())
-  .derive(async ({ request, log }) => {
-    await identifyUser(log, request.headers, new URL(request.url).pathname);
-    return {};
-  })
   .use(
     cors({
       origin: env.CORS_ORIGIN,
