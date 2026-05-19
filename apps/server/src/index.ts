@@ -9,6 +9,8 @@ import {
 } from "evlog/better-auth";
 import { evlog } from "evlog/elysia";
 import { openapi } from "@elysia/openapi";
+import { CloudflareAdapter } from "elysia/adapter/cloudflare-worker";
+
 import { randomRoutes } from "./routes/random";
 
 initLogger({
@@ -20,7 +22,9 @@ const identifyUser = createAuthMiddleware(auth as BetterAuthInstance, {
   maskEmail: true,
 });
 
-new Elysia()
+export default new Elysia({
+  adapter: CloudflareAdapter,
+})
   .use(evlog())
   .use(openapi())
   .derive(async ({ request, log }) => {
@@ -49,4 +53,5 @@ new Elysia()
   .get("/", () => "OK")
   .listen(3000, () => {
     console.log("Server is running on http://localhost:3000");
-  });
+  })
+  .compile();

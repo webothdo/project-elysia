@@ -26,6 +26,7 @@
     "@project-elysia/config": "workspace:*",
     "@types/bun": "catalog:",
     "tsdown": "^0.21.9",
-    "typescript": "catalog:"
+    "typescript": "catalog:",
+    "wrangler": "^4.92.0"
   }
 }
