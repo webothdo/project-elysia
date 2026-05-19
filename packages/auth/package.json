@@ -1,0 +1,24 @@
+{
+  "name": "@project-elysia/auth",
+  "type": "module",
+  "exports": {
+    ".": {
+      "default": "./src/index.ts"
+    },
+    "./*": {
+      "default": "./src/*.ts"
+    }
+  },
+  "scripts": {},
+  "dependencies": {
+    "@project-elysia/db": "workspace:*",
+    "@project-elysia/env": "workspace:*",
+    "better-auth": "catalog:",
+    "dotenv": "catalog:",
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "@project-elysia/config": "workspace:*",
+    "typescript": "catalog:"
+  }
+}

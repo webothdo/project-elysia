@@ -1,0 +1,3 @@
+{
+  "extends": "@project-elysia/config/tsconfig.base.json"
+}
